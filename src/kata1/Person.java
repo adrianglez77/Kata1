@@ -1,30 +1,22 @@
 package kata1;
 
-import java.time.LocalDate;
-import java.time.Period;
-
+import java.util.Date;
 
 public class Person {
     private final String name;
-    private final LocalDate birthdate;
-
-    public Person(String name, LocalDate birthdate) {
+    private final Date birthdate;
+    public Person(String name, Date birthdate) {
         this.name = name;
         this.birthdate = birthdate;
     }
-    
-    public String getName(){
+    public String getName() {
         return name;
     }
-    
-    public LocalDate getBirtdate(){
+    public Date getBirthdate() {
         return birthdate;
     }
     
     public int getAge(){
-        LocalDate today = LocalDate.now();
-        return (int) (Period.between(birthdate,today).getYears());
+        return (int) ((new Date().getTime()-birthdate.getTime())/31536000000L);
     }
-    
-    
 }
